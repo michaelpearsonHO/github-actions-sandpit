@@ -55,8 +55,7 @@ jobs:
       - name: Build container
         uses: docker/build-push-action@v3
         with:
-          context: ./monitoring-as-code
-          file: ./monitoring-as-code/Dockerfile
+          context: .
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
