@@ -1,0 +1,33 @@
+.DS_Store
+*Gemfile.lock
+
+# Any temporary
+**/.tmp
+
+# IntelliJ IDEA
+.idea
+*.iws
+*.iml
+*.ipr
+/.idea/
+
+# Monitoring-as-code artefacts
+monitoring-as-code/output
+monitoring-as-code/_input
+monitoring-as-code/_output
+
+# Prometheus rules and Grafana dashboards
+local/prometheus/rule_configs/*-rules.yaml
+local/grafana/provisioning/dashboards/*/
+
+# YACE config substitution file
+local/yace/config/newconfig.yml
+
+# Alertmanager config substitution file
+local/alertmanager/config/newconfig.yaml
+
+# Prometheus client app config
+local/prometheus/file_sd_configs/client_application_targets.json
+
+# Global Environment Variable file
+local/global.env
