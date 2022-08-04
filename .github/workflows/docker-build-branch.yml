@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Set Previous Git Tag
-        run: echo git describe --tags --abbrev=0
+        run: echo $(git describe --tags --abbrev=0)
 
         #Logs into Github registry
       - name: Login to GitHub Container Registry
