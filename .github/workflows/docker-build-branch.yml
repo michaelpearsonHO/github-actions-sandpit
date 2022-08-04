@@ -44,4 +44,4 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
             PACKAGE_TOKEN=${{secrets.GITHUB_TOKEN}}
-            MAC_VERSION={{ github.event.number }}
+            MAC_VERSION=${{steps.increment.outputs.version}}:${{ github.event.number }}
