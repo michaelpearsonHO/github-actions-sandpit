@@ -26,6 +26,15 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Calculate SemVer increment
+        id: increment
+        uses: UKHomeOffice/semver-tag-action@v2
+        with:
+          increment: ${{ steps.label.outputs.matchedLabels }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          default_use_head_tag: ${{ github.base_ref == 'main' }}
+          dry_run: true
+
       - name: Calculate metadata
         id: meta
         uses: docker/metadata-action@v4
@@ -33,7 +42,6 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
             type=raw,value=${{ github.event.pull_request.head.sha }}
-            type=raw,value=${{steps.increment.outputs.version}}
 
       - name: Build container
         uses: docker/build-push-action@v3
