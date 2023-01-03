@@ -15,6 +15,6 @@
 # Global variables
 # Sets Git branch/tag currently checked out to be used in dashboard tags and rule labels
 #MAC_VERSION=$(git symbolic-ref -q --short HEAD || git describe --tags --exact-match)
-MAC_VERSION=$MAC_VERSION
+MAC_VERSION=${MAC_VERSION:-'local'}
 
 echo $MAC_VERSION
